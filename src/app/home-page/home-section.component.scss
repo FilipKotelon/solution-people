@@ -1,0 +1,50 @@
+@import "../../styles/utility/mixins/mixins-flex";
+
+.home-section{
+  @include d-flex($center: true);
+  padding: 3rem;
+
+  &__illustration-con, &__text{
+    width: 50%;
+  }
+
+  &__illustration{
+    max-width: 90%;
+    padding-right: 9rem;
+    &-con{
+      @include d-flex($jc: flex-end);
+      width: 50%;
+    }
+  }
+
+  &__text{
+
+    & h2{
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__desc{
+    font-size: 2.4rem;
+  }
+}
+
+.home-sections{
+  & .home-section{
+    &:nth-child(odd){
+      flex-direction: row-reverse;
+      text-align: right;
+
+      & .home-section{
+        &__illustration-con{
+          justify-content: flex-start;
+          padding-right: 0;
+          padding-left: 9rem;
+        }
+
+        &__text{
+        }
+      }
+    }
+  }
+}

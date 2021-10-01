@@ -1,0 +1,23 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+
+  &.no-scroll{
+    overflow: hidden;
+  }
+}
+
+body{
+  overflow-x: hidden;
+  position: relative;
+
+  //iphone lul
+  @media (hover: none) {
+    cursor: pointer;
+  }
+}

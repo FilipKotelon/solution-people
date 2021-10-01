@@ -1,0 +1,26 @@
+@import "../../styles/utility/variables";
+@import "../../styles/utility/mixins/mixins-other";
+@import "../../styles/utility/mixins/mixins-flex";
+@import "../../styles/utility/mixins/mixins-spacing";
+
+.sp-nav{
+  @include fix(0, 0);
+  @include d-flex($jc: space-between, $ai: center);
+  width: 100%;
+  z-index: 1000;
+  padding: 15px 30px 0;
+
+  &__links{
+    @include m-not-last(30px, r);
+
+    & a{
+      padding-bottom: 4px;
+      margin-bottom: -4px;
+      @include hover-underline-animation($h: 1px, $top: calc(100% - 1px), $bg: $main, $w: 100%, $dir: right);
+
+      &.active{
+        background-size: 100% 1px;
+      }
+    }
+  }
+}
