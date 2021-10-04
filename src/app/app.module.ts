@@ -1,3 +1,5 @@
+import { DetectSwipeDirective } from './shared/directives/detect-swipe.directive'
+import { CursorService } from './shared/services/cursor.service'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,6 +12,8 @@ import { StoriesPageComponent } from './stories-page/stories-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { SliderComponent } from './slider/slider.component';
+import { CustomCursorComponent } from './custom-cursor/custom-cursor.component';
+import { HoverEnlargeCursorDirective } from './shared/directives/hover-enlarge-cursor.directive';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,16 @@ import { SliderComponent } from './slider/slider.component';
     ContactPageComponent,
     StoriesPageComponent,
     SliderComponent,
+    CustomCursorComponent,
+    HoverEnlargeCursorDirective,
+    DetectSwipeDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgScrollbarModule
   ],
-  providers: [],
+  providers: [CursorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

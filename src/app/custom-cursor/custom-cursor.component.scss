@@ -1,0 +1,48 @@
+@import "../../styles/utility/variables";
+@import "../../styles/utility/mixins/mixins-other";
+@import "../../styles/utility/mixins/mixins-flex";
+
+.custom-cursor{
+  @include fix(-30px, -30px);
+  z-index: 9999999;
+  @include circle(30px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  &::before{
+    @include default-after;
+    @include abs(0, 0);
+    @include circle(100%);
+    background-color: $main;
+    z-index: 0;
+    @include transition;
+  }
+
+  &.large{
+    &::before{
+      transform: scale(2);
+    }
+
+    & .custom-cursor{
+      &__msg{
+        opacity: 1;
+      }
+    }
+  }
+
+  &__msg{
+    position: relative;
+    z-index: 1;
+    color: $white;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0;
+    @include transition;
+  }
+}
+
+::ng-deep body{
+  &, & a{
+    cursor: none;
+  }
+}

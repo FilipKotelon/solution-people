@@ -1,0 +1,77 @@
+@import "../../styles/utility/variables";
+@import "../../styles/utility/mixins/mixins-other";
+@import "../../styles/utility/mixins/mixins-flex";
+@import "../../styles/utility/mixins/mixins-spacing";
+
+.my-slider{
+  @include rect(100vw, 100vh);
+  position: relative;
+  background: rgba(47, 46, 65, 0.55);
+  
+  &__ui, &__slides, &__slide, &__slide__img, &__slide__bg{
+    @include abs(0, 0);
+    @include square(100%);
+  }
+
+  &__ui{
+    &__progress{
+      @include abs($r: 30px, $b: 100px);
+      @include d-flex($dir: column, $ai: center);
+      z-index: 10;
+
+      &__current{
+        color: $alt;
+      }
+
+      &__bar{
+        @include rect(1px, 150px);
+        background-color: $white;
+        margin: 15px 0;
+      }
+
+      &__max{
+        color: $white;
+      }
+    }
+  }
+
+  &__slide{
+    @include d-flex($dir: column, $ai: center);
+    visibility: hidden;
+    opacity: 0;
+    @include transition;
+
+    &.open{
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__img{
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    &__bg{
+      background: rgba(47, 46, 65, 0.55);
+      z-index: 1;
+    }
+
+    &__content{
+      @include d-flex($dir: column, $ai: center);
+      position: relative;
+      z-index: 2;
+      color: $white;
+      text-align: center;
+      margin-bottom: 100px;
+      margin-top: 63vh;
+
+      & h2{
+        margin-bottom: 22px;
+      }
+
+      & p{
+        max-width: 540px;
+      }
+    }
+  }
+}

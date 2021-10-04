@@ -10,6 +10,48 @@
   z-index: 1000;
   padding: 15px 30px 0;
 
+  &.on-dark{
+    & .sp-nav{
+      &__logo{
+        &::after{
+          opacity: 1;
+        }
+
+        & img{
+          @include square(45px);
+        }
+      }
+
+      &__links{
+        & a{
+          color: $white;
+          background-image: linear-gradient(to right, $white, $white);
+        }
+      }
+    }
+  }
+
+  &__logo{
+    position: relative;
+
+    &::after{
+      @include default-after;
+      @include abs(50%, 50%);
+      @include circle(60px);
+      transform: translate(calc(-50% - 1px), calc(-50% - 2px));
+      background: $white;
+      z-index: 0;
+      opacity: 0;
+      @include transition;
+    }
+
+    & img{
+      @include square(45px);
+      position: relative;
+      z-index: 1;
+    }
+  }
+
   &__links{
     @include m-not-last(30px, r);
 
@@ -17,6 +59,7 @@
       padding-bottom: 4px;
       margin-bottom: -4px;
       @include hover-underline-animation($h: 1px, $top: calc(100% - 1px), $bg: $main, $w: 100%, $dir: right);
+      @include transition;
 
       &.active{
         background-size: 100% 1px;

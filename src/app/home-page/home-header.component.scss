@@ -32,6 +32,5 @@
     @include hover-underline-animation($h: 1px, $top: calc(100% - 1px), $bg: $main, $w: 100%, $dir: right);
     padding-bottom: 4px;
     bottom: 30px;
-    cursor: pointer;
   }
 }
