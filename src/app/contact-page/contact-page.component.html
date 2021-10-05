@@ -1,1 +1,39 @@
-<p>contact-page works!</p>
+<div class="contact-page slide-section">
+  <div class="contact-page__illustration-con">
+    <img src="assets/img/illustrations/contact.svg" alt="Contact" class="contact-page__illustration">
+  </div>
+  <div class="contact-page__main">
+    <div class="contact-page__form">
+
+      <h1 class="medium-title">Let’s have a chat!</h1>
+      <p>
+        Please keep in mind that this company is totally fake and nobody will write back.
+        Your message won’t even be sent anywhere.
+      </p>
+      <p>
+        But, if you’re a cheeky web developer, you can check the developer console after
+        submitting to see that I know how to get data from forms in Angular.Then you are
+        allowed to clap vigorously at my amazing talent which I totally did not obtain from online tutorials.
+      </p>
+
+      <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="contact-form__double-row">
+          <div class="contact-form__field-con">
+            <input type="text" class="contact-form__field" placeholder="Name" formControlName="name" appHoverEnlargeCursor hoverMessage="FILL">
+            <span class="contact-form__field-validation">Please enter your name.</span>
+          </div>
+          <div class="contact-form__field-con">
+            <input type="text" class="contact-form__field" placeholder="Email" formControlName="email" appHoverEnlargeCursor hoverMessage="FILL">
+            <span class="contact-form__field-validation">Please enter a valid email.</span>
+          </div>
+        </div>
+        <div class="contact-form__field-con">
+          <textarea type="text" class="contact-form__field" placeholder="Message" formControlName="message" appHoverEnlargeCursor hoverMessage="FILL"></textarea>
+          <span class="contact-form__field-validation">Please enter a message that nobody will read anyway.</span>
+        </div>
+        <button type="submit" class="contact-form__submit" appHoverEnlargeCursor hoverMessage="Send">Send</button>
+      </form>
+
+    </div>
+  </div>
+</div>

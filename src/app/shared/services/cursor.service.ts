@@ -1,10 +1,10 @@
 import { Subject } from "rxjs";
 
 export class CursorService{
-  changedSize = new Subject<boolean>();
-  changedMsg = new Subject<string>();
   private isLarge = false;
   private msg = '';
+  changedSize = new Subject<boolean>();
+  changedMsg = new Subject<string>();
 
   enlargeCursor = (msg: string) => {
     this.isLarge = true;

@@ -1,3 +1,4 @@
+import { PopupMessageService } from './shared/services/popup-message.service'
 import { DetectSwipeDirective } from './shared/directives/detect-swipe.directive'
 import { CursorService } from './shared/services/cursor.service'
 import { NgModule } from '@angular/core';
@@ -14,6 +15,8 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { SliderComponent } from './slider/slider.component';
 import { CustomCursorComponent } from './custom-cursor/custom-cursor.component';
 import { HoverEnlargeCursorDirective } from './shared/directives/hover-enlarge-cursor.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PopupMessageComponent } from './popup-message/popup-message.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,19 @@ import { HoverEnlargeCursorDirective } from './shared/directives/hover-enlarge-c
     SliderComponent,
     CustomCursorComponent,
     HoverEnlargeCursorDirective,
-    DetectSwipeDirective
+    DetectSwipeDirective,
+    PopupMessageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    ReactiveFormsModule
   ],
-  providers: [CursorService],
+  providers: [
+    CursorService,
+    PopupMessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
