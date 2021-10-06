@@ -17,6 +17,7 @@ import { CustomCursorComponent } from './custom-cursor/custom-cursor.component';
 import { HoverEnlargeCursorDirective } from './shared/directives/hover-enlarge-cursor.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PopupMessageComponent } from './popup-message/popup-message.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PopupMessageComponent } from './popup-message/popup-message.component';
     BrowserModule,
     AppRoutingModule,
     NgScrollbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     CursorService,

@@ -6,10 +6,34 @@ import { SolutionsPageComponent } from "./solutions-page/solutions-page.componen
 import { StoriesPageComponent } from "./stories-page/stories-page.component";
 
 const appRoutes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'our-solutions', component: SolutionsPageComponent },
-  { path: 'user-stories', component: StoriesPageComponent },
-  { path: 'contact', component: ContactPageComponent }
+  { 
+    path: '',
+    component: HomePageComponent,
+    data: {
+      animation: '1'
+    }
+  },
+  { 
+    path: 'our-solutions',
+    component: SolutionsPageComponent,
+    data: {
+      animation: '2'
+    }
+  },
+  { 
+    path: 'user-stories',
+    component: StoriesPageComponent,
+    data: {
+      animation: '3'
+    }
+  },
+  { 
+    path: 'contact',
+    component: ContactPageComponent,
+    data: {
+      animation: '4'
+    }
+  }
 ]
 
 @NgModule({
