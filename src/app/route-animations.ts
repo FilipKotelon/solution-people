@@ -18,12 +18,12 @@ export const fader = trigger('routeAnimations', [
         width: '100%',
         opacity: 0,
       })
-    ]),
+    ], { optional: true }),
     query(':enter', [
       animate('600ms ease',
         style({opacity: 1})
       )
-    ])
+    ], { optional: true })
   ])
 ])
 

@@ -1,1 +1,24 @@
-<p>stories-page works!</p>
+<div class="stories-page slide-section">
+  <h1 class="stories-page__title big-title">What do our clients say?</h1>
+  <!-- From what I read on stackoverflow, the carousel won't work with slides being displayed with *ngFor, and I'd have to initialize the carousel manually in my code, which I find uglier than just listing 4 items in this particular case. -->
+  <carousel
+    cellWidth="100%"
+    [dots]="true"
+    [transitionDuration]="600"
+    transitionTimingFunction="ease"
+    [arrows]="false"
+  >
+    <div class="carousel-cell" appHoverEnlargeCursor hoverMessage="Drag">
+      <app-story [slide]="slides[0]"></app-story>
+    </div>
+    <div class="carousel-cell" appHoverEnlargeCursor hoverMessage="Drag">
+      <app-story [slide]="slides[1]"></app-story>
+    </div>
+    <div class="carousel-cell" appHoverEnlargeCursor hoverMessage="Drag">
+      <app-story [slide]="slides[2]"></app-story>
+    </div>
+    <div class="carousel-cell" appHoverEnlargeCursor hoverMessage="Drag">
+      <app-story [slide]="slides[3]"></app-story>
+    </div>
+  </carousel>
+</div>

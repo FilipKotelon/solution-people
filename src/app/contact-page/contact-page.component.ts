@@ -1,3 +1,4 @@
+import { PopupMessageService } from './../shared/services/popup-message.service'
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -8,8 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactPageComponent implements OnInit {
   contactForm!: FormGroup;
+  success = false;
 
-  constructor() { }
+  constructor(private popupMsgSvc: PopupMessageService) { }
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
@@ -21,6 +23,8 @@ export class ContactPageComponent implements OnInit {
 
   onSubmit(){
     if(this.contactForm.valid){
+      this.popupMsgSvc.displayMessage('The form was submitted successfully. And nothing else will happen.')
+
       console.clear();
       console.log('Here\'s what you entered into the form:');
       console.table({
@@ -31,6 +35,9 @@ export class ContactPageComponent implements OnInit {
       console.log('And yes, I printed this information using console.table to pretend to be cool. I mean, it\'s kinda cool.');
 
       this.contactForm.reset();
+      this.success = true;
+    } else {
+      this.success = false;
     }
   }
 }

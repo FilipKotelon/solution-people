@@ -1,0 +1,33 @@
+@import "../../styles/utility/variables";
+@import "../../styles/utility/mixins/mixins-other";
+@import "../../styles/utility/mixins/mixins-flex";
+@import "../../styles/utility/mixins/mixins-spacing";
+
+.popup-message{
+  @include fix(0, 0);
+  @include square(100%);
+  @include d-flex($center: true);
+  background: rgba(47, 46, 65, 0.95);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  color: $white;
+  padding: 30px;
+  @include transition;
+
+  &.open{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__text{
+    font-size: 24px;
+  }
+
+  &__info{
+    @include abs-center-x;
+    top: calc(50% + 200px);
+    font-size: 14px;
+  }
+}

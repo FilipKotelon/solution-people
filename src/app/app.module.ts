@@ -18,6 +18,8 @@ import { HoverEnlargeCursorDirective } from './shared/directives/hover-enlarge-c
 import { ReactiveFormsModule } from '@angular/forms';
 import { PopupMessageComponent } from './popup-message/popup-message.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { StoryComponent } from './stories-page/story/story.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +33,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CustomCursorComponent,
     HoverEnlargeCursorDirective,
     DetectSwipeDirective,
-    PopupMessageComponent
+    PopupMessageComponent,
+    StoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgScrollbarModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IvyCarouselModule
   ],
   providers: [
     CursorService,

@@ -12,11 +12,11 @@
       </p>
       <p>
         But, if you’re a cheeky web developer, you can check the developer console after
-        submitting to see that I know how to get data from forms in Angular.Then you are
+        submitting to see that I know how to get data from forms in Angular. Then you are
         allowed to clap vigorously at my amazing talent which I totally did not obtain from online tutorials.
       </p>
 
-      <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" [ngClass]="{'success': success}">
         <div class="contact-form__double-row">
           <div class="contact-form__field-con">
             <input type="text" class="contact-form__field" placeholder="Name" formControlName="name" appHoverEnlargeCursor hoverMessage="FILL">

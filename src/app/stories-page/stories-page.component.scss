@@ -1,0 +1,41 @@
+@import "../../styles/utility/variables";
+@import "../../styles/utility/mixins/mixins-other";
+@import "../../styles/utility/mixins/mixins-flex";
+@import "../../styles/utility/mixins/mixins-spacing";
+
+.stories-page{
+  @include d-flex($dir: column, $center: true);
+
+  &__title{
+    margin-bottom: 70px;
+  }
+
+  & .carousel{
+    height: 100% !important;
+    max-height: 60vh;
+
+    & .carousel-cell{
+      cursor: none;
+    }
+  }
+}
+
+::ng-deep{
+  & .carousel-container{
+    cursor: none !important;
+  }
+  & .carousel-dots{
+    & .carousel-dot{
+      width: 15px !important;
+      height: 15px !important;
+      margin: 6px !important;
+      background: $main;
+      @include transition;
+
+      &.carousel-dot-active{
+        background: $alt !important;
+        transform: scale(1.3);
+      }
+    }
+  }
+}

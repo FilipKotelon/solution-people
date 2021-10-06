@@ -1,7 +1,7 @@
 .contact-form{
   @include d-flex($dir: column, $ai: flex-start);
 
-  &.ng-submitted.ng-invalid{
+  &:not(.success).ng-submitted.ng-invalid{
     & .contact-form__field.ng-invalid{
       border-color: $error;
 

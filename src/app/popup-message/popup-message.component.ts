@@ -22,7 +22,7 @@ export class PopupMessageComponent implements OnInit {
     })
   }
 
-  onClose(){
+  onClose = () => {
     this.popupMsgSvc.closeMessage();
   }
 }
