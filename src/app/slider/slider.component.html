@@ -1,6 +1,6 @@
 <div class="my-slider">
   <div class="my-slider__ui">
-    <div class="my-slider__ui__info" [ngClass]="{'closed': infoClosed}" (click)="closeInfo()">
+    <div class="my-slider__ui__info" [ngClass]="{'closed': infoClosed || !showInfoOnMobile}" (click)="closeInfo()">
       <div class="my-slider__ui__info__main">
         Swipe to navigate
       </div>

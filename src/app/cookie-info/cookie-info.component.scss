@@ -1,0 +1,26 @@
+@import "../../styles/utility/variables";
+@import "../../styles/utility/animations";
+@import "../../styles/utility/mixins/mixins-other";
+@import "../../styles/utility/mixins/mixins-flex";
+@import "../../styles/utility/mixins/mixins-spacing";
+
+.cookie-info{
+  @include fix($l: 0, $b: 0);
+  @include d-flex($ai: center, $jc: space-between);
+  width: 100%;
+  padding: 12px 15px;
+  background-color: $main;
+  color: $white;
+  opacity: 0;
+  animation: fadeIn 1.2s ease 2.5s forwards;
+
+  &.closed{
+    animation: fadeOut .6s;
+  }
+
+  &__close{
+    @include square(20px);
+    filter: brightness(0) invert(1);
+    margin-left: 16px;
+  }
+}

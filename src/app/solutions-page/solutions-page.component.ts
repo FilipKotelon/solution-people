@@ -1,5 +1,6 @@
 import { Slide } from '../shared/models/slide.model'
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-solutions-page',

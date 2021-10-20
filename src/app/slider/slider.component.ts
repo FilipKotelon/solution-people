@@ -1,6 +1,7 @@
 import { Slide } from './../shared/models/slide.model'
 import { Component, Input, OnInit } from '@angular/core';
 import { Direction, DirectionPair } from '../shared/directives/detect-swipe.directive';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-slider',
@@ -11,11 +12,16 @@ export class SliderComponent implements OnInit {
   @Input() slides!: Slide[];
   currentSlide = 0;
   infoClosed = false;
+  showInfoOnMobile = false;
 
-  constructor() { }
+  constructor(private cookieSvc: CookieService) { }
 
   ngOnInit(): void {
-    
+    if(this.cookieSvc.check('sawSliderInstructions')){
+      this.showInfoOnMobile = !(this.cookieSvc.get('sawSliderInstructions') === 'true');
+    } else {
+      this.showInfoOnMobile = true;
+    }
   }
 
   onSwipe = (directionPair: DirectionPair) => {
@@ -44,5 +50,7 @@ export class SliderComponent implements OnInit {
 
   closeInfo = () => {
     this.infoClosed = true;
+    this.showInfoOnMobile = false;
+    this.cookieSvc.set('sawSliderInstructions', 'true');
   }
 }
