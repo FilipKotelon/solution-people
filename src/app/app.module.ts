@@ -20,6 +20,8 @@ import { PopupMessageComponent } from './popup-message/popup-message.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { StoryComponent } from './stories-page/story/story.component';
+import { CookieService } from 'ngx-cookie-service';
+import { CookieInfoComponent } from './cookie-info/cookie-info.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { StoryComponent } from './stories-page/story/story.component';
     HoverEnlargeCursorDirective,
     DetectSwipeDirective,
     PopupMessageComponent,
-    StoryComponent
+    StoryComponent,
+    CookieInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { StoryComponent } from './stories-page/story/story.component';
   ],
   providers: [
     CursorService,
-    PopupMessageService
+    PopupMessageService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

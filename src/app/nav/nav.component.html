@@ -2,9 +2,28 @@
   <a routerLink="/" class="sp-nav__logo" appHoverEnlargeCursor>
     <img src="assets/img/illustrations/logo.svg" alt="">
   </a>
-  <div class="sp-nav__links">
+  <div class="sp-nav__links" *ngIf="!isMobile">
     <a routerLinkActive="active" routerLink="/our-solutions" appHoverEnlargeCursor>OUR SOLUTIONS</a>
     <a routerLinkActive="active" routerLink="/user-stories" appHoverEnlargeCursor>USER STORIES</a>
     <a routerLinkActive="active" routerLink="/contact" appHoverEnlargeCursor>CONTACT</a>
+  </div>
+  <div
+    class="sp-nav__opener"
+    *ngIf="isMobile"
+    (click)="fullNavOpen ? closeFullNav() : openFullNav()"
+    [ngClass]="{'open': fullNavOpen}"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="sp-full-nav" [ngClass]="{'open': fullNavOpen}" *ngIf="isMobile">
+    <div class="sp-full-nav__links">
+      <a routerLinkActive="active" routerLink="/" appHoverEnlargeCursor (click)="closeFullNav()">HOME</a>
+      <a routerLinkActive="active" routerLink="/our-solutions" appHoverEnlargeCursor (click)="closeFullNav()">OUR SOLUTIONS</a>
+      <a routerLinkActive="active" routerLink="/user-stories" appHoverEnlargeCursor (click)="closeFullNav()">USER STORIES</a>
+      <a routerLinkActive="active" routerLink="/contact" appHoverEnlargeCursor (click)="closeFullNav()">CONTACT</a>
+    </div>
   </div>
 </nav>

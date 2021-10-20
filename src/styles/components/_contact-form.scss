@@ -51,7 +51,15 @@
   }
 
   &__double-row{
-    @include flex-row-2(30px);
+    @media(min-width: 577px){
+      @include flex-row-2(30px);
+    }
+
+    @media(max-width: 576px){
+      @include d-flex($dir: column);
+      @include m-not-last(30px, b);
+      margin-bottom: 30px;
+    }
   }
 
   &__submit{

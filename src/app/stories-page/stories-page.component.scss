@@ -8,11 +8,30 @@
 
   &__title{
     margin-bottom: 70px;
+    text-align: center;
+
+    @media(max-width: 1500px){
+      margin-top: 22px;
+      margin-bottom: 48px;
+    }
+
+    @media(max-width: 992px){
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    @media(max-width: 768px){
+      margin-bottom: 24px;
+    }
   }
 
   & .carousel{
     height: 100% !important;
     max-height: 60vh;
+
+    @media(max-width: 576px){
+      max-height: 67vh;
+    }
 
     & .carousel-cell{
       cursor: none;

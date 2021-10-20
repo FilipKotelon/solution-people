@@ -9,6 +9,10 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
 
+  @media(hover: none){
+    display: none;
+  }
+
   &::before{
     @include default-after;
     @include abs(0, 0);
@@ -41,8 +45,10 @@
   }
 }
 
-::ng-deep body{
-  &, & a{
-    cursor: none;
+@media(hover: hover){
+  ::ng-deep body{
+    &, & a{
+      cursor: none;
+    }
   }
 }

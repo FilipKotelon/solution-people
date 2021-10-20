@@ -7,7 +7,7 @@
   @include fix(0, 0);
   @include square(100%);
   @include d-flex($center: true);
-  background: rgba(47, 46, 65, 0.95);
+  background: rgba(47, 46, 65, 0.85);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;

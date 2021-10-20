@@ -7,10 +7,32 @@
   @include d-flex($ai: center, $jc: space-between);
   padding: 80px 120px;
 
+  @media(max-width: 1200px){
+    height: auto;
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  @media(max-width: 768px){
+    padding: 80px 15px 60px;
+  }
+
   &__illustration{
+    max-width: 100%;
+
     &-con{
       @include d-flex($ai: center, $jc: flex-end);
       width: 50%;
+
+      @media(max-width: 1200px){
+        width: auto;
+        max-width: 540px;
+        margin-bottom: 60px;
+      }
+
+      @media(max-width: 768px){
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -19,8 +41,22 @@
     width: 50%;
     padding-left: 150px;
 
+    @media(max-width: 1500px){
+      padding-left: 90px;
+    }
+
+    @media(max-width: 1200px){
+      padding-left: 0;
+      max-width: 540px;
+      width: auto;
+    }
+
     & h1{
       margin-bottom: 18px;
+
+      @media(max-width: 768px){
+        font-size: 32px;
+      }
     }
   }
 

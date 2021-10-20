@@ -7,6 +7,10 @@
   @include rect(100vw, 100vh);
   position: relative;
   background: rgba(47, 46, 65, 0.55);
+
+  @media(max-width: 576px){
+    background: $main;
+  }
   
   &__ui, &__slides, &__slide, &__slide__img, &__slide__bg{
     @include abs(0, 0);
@@ -15,22 +19,67 @@
 
   &__ui{
     &__progress{
-      @include abs($r: 30px, $b: 100px);
       @include d-flex($dir: column, $ai: center);
       z-index: 10;
+      
+      @media(min-width: 769px){
+        @include abs($r: 30px, $b: 100px);
+      }
+      
+      @media(max-width: 768px){
+        @include abs-center-x;
+        flex-direction: row;
+        bottom: 20px;
+      }
 
       &__current{
         color: $alt;
       }
 
       &__bar{
-        @include rect(1px, 150px);
         background-color: $white;
-        margin: 15px 0;
+      
+        @media(min-width: 769px){
+          @include rect(1px, 150px);
+          margin: 15px 0;
+        }
+      
+        @media(max-width: 768px){
+          @include rect(120px, 1px);
+          margin: 0 15px;
+        }
       }
 
       &__max{
         color: $white;
+      }
+    }
+
+    &__info{
+      @include d-flex($dir: column, $center: true);
+      @include abs(0, 0);
+      @include square(100%);
+      background: rgba(47, 46, 65, 0.85);
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      color: $white;
+      @include transition;
+
+      &__main{
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      &__additional{
+        font-size: 14px;
+      }
+
+      @media(hover: none){
+        &:not(.closed){
+          opacity: 1;
+          visibility: visible;
+        }
       }
     }
   }
@@ -40,20 +89,43 @@
     visibility: hidden;
     opacity: 0;
     @include transition;
+      
+    @media(max-width: 768px){
+      justify-content: center;
+      padding: 60px 15px;
+    }
+
+    @media(max-width: 576px){
+      justify-content: flex-start;
+      padding-top: calc(30vh + 60px + 18px);
+    }
 
     &.open{
       visibility: visible;
       opacity: 1;
+
+      & .my-slider__slide__content{
+        animation: showUp 1s ease .3s forwards;
+      }
     }
 
     &__img{
       object-fit: cover;
       z-index: 0;
+
+      @media(max-width: 576px){
+        top: 60px;
+        height: 30vh;
+      }
     }
 
     &__bg{
       background: rgba(47, 46, 65, 0.55);
       z-index: 1;
+
+      @media(max-width: 576px){
+        background: transparent;
+      }
     }
 
     &__content{
@@ -64,9 +136,23 @@
       text-align: center;
       margin-bottom: 100px;
       margin-top: 63vh;
+      opacity: 0;
+
+      @media(hover: none){
+        pointer-events: none;
+      }
+      
+      @media(max-width: 768px){
+        margin: 0;
+      }
 
       & h2{
         margin-bottom: 22px;
+      
+        @media(max-width: 768px){
+          font-size: 32px;
+          margin-bottom: 12px;
+        }
       }
 
       & p{

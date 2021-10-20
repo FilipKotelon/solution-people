@@ -1,18 +1,18 @@
-<ng-scrollbar smoothScroll class="home-scrollbar">
+<ng-scrollbar smoothScroll class="page-scrollbar">
   <div class="home-sections">
-    <header class="home-header slide-section" #homeSection>
+    <header class="home-header slide-section">
       <img src="assets/img/illustrations/logo.svg" alt="Solutions People Logo" class="home-header__bg">
       <div class="home-header__main">
         <span>WE ARE THE</span>
         <h1 class="big-title">Solution People</h1>
         <span>AND WE MAKE SOLUTIONS</span>
       </div>
-      <div class="home-header__cta" appHoverEnlargeCursor>
+      <div class="home-header__cta" appHoverEnlargeCursor (click)="scrollToSections()">
         EXPLORE
       </div>
     </header>
   
-    <section class="home-section slide-section" #homeSection>
+    <section class="home-section slide-section" #firstSection>
       <div class="home-section__illustration-con">
         <img src="assets/img/illustrations/we-solve-things.svg" alt="We solve things" class="home-section__illustration">
       </div>
@@ -26,7 +26,7 @@
       </div>
     </section>
     
-    <section class="home-section slide-section" #homeSection>
+    <section class="home-section slide-section">
       <div class="home-section__illustration-con">
         <img src="assets/img/illustrations/we-look-at-charts.svg" alt="We look at charts." class="home-section__illustration">
       </div>
@@ -40,7 +40,7 @@
       </div>
     </section>
     
-    <section class="home-section slide-section" #homeSection>
+    <section class="home-section slide-section">
       <div class="home-section__illustration-con">
         <img src="assets/img/illustrations/we-think-a-lot.svg" alt="We think a lot." class="home-section__illustration">
       </div>
@@ -54,7 +54,7 @@
       </div>
     </section>
     
-    <section class="home-section slide-section" #homeSection>
+    <section class="home-section slide-section">
       <div class="home-section__illustration-con">
         <img src="assets/img/illustrations/we-also-eat-pizza.svg" alt="We also eat pizza." class="home-section__illustration">
       </div>

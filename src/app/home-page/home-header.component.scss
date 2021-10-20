@@ -7,13 +7,17 @@
   @include d-flex($dir: column, $center: true);
   position: relative;
   font-weight: 500;
-  padding: 3rem;
+  padding: 30px;
 
   &__bg{
     @include abs-center;
+    @include square(100%);
+    max-height: 70vh;
+    max-width: 70vw;
+    object-fit: contain;
+    opacity: 0;
+    animation: showUpBg 1.2s ease 2s forwards;
     z-index: 0;
-    opacity: .2;
-    width: 70rem;
   }
 
   &__main, &__cta{
@@ -23,8 +27,37 @@
 
   &__main{
     @include d-flex($dir: column, $center: true);
-    @include m-not-last(37px, b);
-    margin-bottom: 6rem;
+    margin-bottom: 60px;
+    text-align: center;
+
+    @media(min-width: 993px){
+      @include m-not-last(37px, b);
+    }
+
+    @media(max-width: 992px){
+      @include m-not-last(30px, b);
+      margin-bottom: 30px;
+    }
+
+    & > *{
+      opacity: 0;
+    }
+    
+    & span:first-child{
+      animation: showUp 1.2s ease forwards;
+    }
+    
+    & h1{
+      animation: showUp 1.2s ease .6s forwards;
+      
+      @media(max-width: 350px){
+        font-size: 40px;
+      }
+    }
+
+    & span:last-child{
+      animation: showUp 1.2s ease 1.2s forwards;
+    }
   }
 
   &__cta{
@@ -32,5 +65,31 @@
     @include hover-underline-animation($h: 1px, $top: calc(100% - 1px), $bg: $main, $w: 100%, $dir: right);
     padding-bottom: 4px;
     bottom: 30px;
+    opacity: 0;
+    animation: showUpCta 1.2s ease 3s forwards;
+  }
+}
+
+@keyframes showUpCta {
+  0%{
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.7);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes showUpBg {
+  0%{
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.7);
+  }
+
+  100%{
+    opacity: .2;
+    transform: translate(-50%, -50%) scale(1);
   }
 }

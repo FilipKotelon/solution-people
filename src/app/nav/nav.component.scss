@@ -7,8 +7,12 @@
   @include fix(0, 0);
   @include d-flex($jc: space-between, $ai: center);
   width: 100%;
-  z-index: 1000;
+  z-index: 100000;
   padding: 15px 30px 0;
+
+  @media(max-width: 992px){
+    padding: 10px 15px 0;
+  }
 
   &.on-dark{
     & .sp-nav{
@@ -16,16 +20,18 @@
         &::after{
           opacity: 1;
         }
-
-        & img{
-          @include square(45px);
-        }
       }
 
       &__links{
         & a{
           color: $white;
           background-image: linear-gradient(to right, $white, $white);
+        }
+      }
+
+      &__opener{
+        & span{
+          background-color: $white;
         }
       }
     }
@@ -43,17 +49,32 @@
       z-index: 0;
       opacity: 0;
       @include transition;
+
+      @media(max-width: 992px){
+        @include circle(46px);
+      }
     }
 
     & img{
       @include square(45px);
       position: relative;
       z-index: 1;
+
+      @media(max-width: 992px){
+        @include square(34px);
+      }
     }
   }
 
   &__links{
-    @include m-not-last(30px, r);
+    @media(min-width: 993px){
+      @include m-not-last(30px, r);
+    }
+
+    @media(max-width: 992px){
+      @include m-not-last(22px, r);
+      font-size: 16px;
+    }
 
     & a{
       padding-bottom: 4px;
@@ -65,5 +86,66 @@
         background-size: 100% 1px;
       }
     }
+  }
+
+  &__opener{
+    @include d-flex($dir: column, $center: true);
+    @include m-not-last(5px, b);
+    position: relative;
+
+    &.open{
+      z-index: 100002;
+
+      & span{
+        background-color: $white;
+
+        &:nth-child(1){
+          transform: rotate(45deg) translateY(-3px);
+        }
+
+        &:nth-child(2){
+          opacity: 0;
+        }
+
+        &:nth-child(3){
+          transform: rotate(-45deg) translateY(3px);
+        }
+      }
+    }
+
+    & span{
+      @include rect(26px, 2px);
+      border-radius: 3px;
+      background-color: $main;
+      @include transition;
+      transform-origin: left center;
+    }
+  }
+}
+
+.sp-full-nav{
+  @include fix(0, 0);
+  @include square(100%);
+  @include d-flex($center: true);
+  background: rgba(47, 46, 65, 0.85);
+  z-index: 100001;
+  opacity: 0;
+  visibility: hidden;
+  @include transition;
+  
+  &, & a{
+    color: $white;
+  }
+
+  &.open{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__links{
+    @include d-flex($dir: column, $ai: center);
+    @include m-not-last(18px, b);
+    text-align: center;
+    font-size: 24px;
   }
 }

@@ -9,6 +9,8 @@ import { filter } from 'rxjs/operators';
 })
 export class NavComponent implements OnInit {
   onDark = false;
+  isMobile = false;
+  fullNavOpen = false;
 
   constructor(private router: Router) { }
 
@@ -24,6 +26,26 @@ export class NavComponent implements OnInit {
         }
       }
     });
+
+    this.checkIfMobile();
+    window.addEventListener('resize', () => {
+      this.checkIfMobile();
+    })
   }
 
+  checkIfMobile = () => {
+    if(window.innerWidth < 576){
+      this.isMobile = true;
+    } else {
+      this.isMobile = false;
+    }
+  }
+
+  openFullNav = () => {
+    this.fullNavOpen = true;
+  }
+
+  closeFullNav = () => {
+    this.fullNavOpen = false;
+  }
 }

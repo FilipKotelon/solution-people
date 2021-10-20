@@ -10,6 +10,7 @@ import { Direction, DirectionPair } from '../shared/directives/detect-swipe.dire
 export class SliderComponent implements OnInit {
   @Input() slides!: Slide[];
   currentSlide = 0;
+  infoClosed = false;
 
   constructor() { }
 
@@ -39,5 +40,9 @@ export class SliderComponent implements OnInit {
     } else {
       this.currentSlide--;
     }
+  }
+
+  closeInfo = () => {
+    this.infoClosed = true;
   }
 }

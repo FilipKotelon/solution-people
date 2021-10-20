@@ -1,6 +1,13 @@
 <div class="my-slider">
   <div class="my-slider__ui">
-    <div class="my-slider__ui__info"></div>
+    <div class="my-slider__ui__info" [ngClass]="{'closed': infoClosed}" (click)="closeInfo()">
+      <div class="my-slider__ui__info__main">
+        Swipe to navigate
+      </div>
+      <div class="my-slider__ui__info__additional">
+        Tap to continue
+      </div>
+    </div>
     <div class="my-slider__ui__progress">
       <div class="my-slider__ui__progress__current">{{ currentSlide + 1 }}</div>
       <div class="my-slider__ui__progress__bar"></div>
