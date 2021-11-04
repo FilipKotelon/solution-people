@@ -10,7 +10,7 @@ export class StoriesPageComponent implements OnInit {
   slides: Slide[] = [
     new Slide(
       'Gina Astralis',
-      'Working with the Solution People was a true pleasure. I just told them that I have a problem and then immediately they said: “That’s amazing!”. So, after that there was a kind of awkward silence, beacuse, you know, saying “That’s amazing!” when somebody tells you they have a problem is maybe a little out of touch, but they followed that up with: “Because we have a solution!” and then we laughed and they actually did have a solution!',
+      'Working with the Solution People was a true pleasure. I just told them that I have a problem and then immediately they said: “That’s amazing!”. So, after that there was a kind of awkward silence, because, you know, saying “That’s amazing!” when somebody tells you they have a problem is maybe a little out of touch, but they followed that up with: “Because we have a solution!” and then we laughed and they actually did have a solution!',
       'assets/img/photos/stories-1.png'
     ),
     new Slide(
