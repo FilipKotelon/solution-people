@@ -28,11 +28,6 @@ export class SolutionsPageComponent implements OnInit {
       'Our fourth solution',
       'Our fourth solution changed absolutely nothing about that beautiful landscape. Thanks to us, it is still beautiful and completely the same as it was! No problem.',
       'assets/img/photos/solution-4.png'
-    ),
-    new Slide(
-      'The final solution',
-      'The final solution is a song performed by a popular metal band named Sabaton. We are not associated with them but we needed to write this, because people keep making jokes about the word "solution" being in the title.',
-      'assets/img/photos/solution-5.png'
     )
   ];
 
